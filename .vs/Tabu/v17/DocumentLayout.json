@@ -1,0 +1,81 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ilqar\\Desktop\\API\\Tabu\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D08715A4-4FE7-44B8-AA22-DE291C8DFF39}|Tabu.csproj|c:\\users\\ilqar\\desktop\\api\\tabu\\services\\implements\\languageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D08715A4-4FE7-44B8-AA22-DE291C8DFF39}|Tabu.csproj|solutionrelative:services\\implements\\languageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D08715A4-4FE7-44B8-AA22-DE291C8DFF39}|Tabu.csproj|c:\\users\\ilqar\\desktop\\api\\tabu\\controllers\\languagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D08715A4-4FE7-44B8-AA22-DE291C8DFF39}|Tabu.csproj|solutionrelative:controllers\\languagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D08715A4-4FE7-44B8-AA22-DE291C8DFF39}|Tabu.csproj|c:\\users\\ilqar\\desktop\\api\\tabu\\services\\abstracts\\ilanguageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D08715A4-4FE7-44B8-AA22-DE291C8DFF39}|Tabu.csproj|solutionrelative:services\\abstracts\\ilanguageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 372,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LanguagesController.cs",
+              "DocumentMoniker": "C:\\Users\\Ilqar\\Desktop\\API\\Tabu\\Controllers\\LanguagesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LanguagesController.cs",
+              "ToolTip": "C:\\Users\\Ilqar\\Desktop\\API\\Tabu\\Controllers\\LanguagesController.cs",
+              "RelativeToolTip": "Controllers\\LanguagesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T19:28:08.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ILanguageService.cs",
+              "DocumentMoniker": "C:\\Users\\Ilqar\\Desktop\\API\\Tabu\\Services\\Abstracts\\ILanguageService.cs",
+              "RelativeDocumentMoniker": "Services\\Abstracts\\ILanguageService.cs",
+              "ToolTip": "C:\\Users\\Ilqar\\Desktop\\API\\Tabu\\Services\\Abstracts\\ILanguageService.cs",
+              "RelativeToolTip": "Services\\Abstracts\\ILanguageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T19:25:56.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LanguageService.cs",
+              "DocumentMoniker": "C:\\Users\\Ilqar\\Desktop\\API\\Tabu\\Services\\Implements\\LanguageService.cs",
+              "RelativeDocumentMoniker": "Services\\Implements\\LanguageService.cs",
+              "ToolTip": "C:\\Users\\Ilqar\\Desktop\\API\\Tabu\\Services\\Implements\\LanguageService.cs",
+              "RelativeToolTip": "Services\\Implements\\LanguageService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCMAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T19:25:01.132Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 25,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
