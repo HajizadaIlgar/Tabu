@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Tabu.DTOs.Languages;
+using Tabu.Exceptions;
 using Tabu.Services.Abstracts;
 
 namespace Tabu.Controllers;
@@ -24,15 +25,58 @@ public class LanguagesController(ILanguageService _service) : ControllerBase
     [Route("{code}")]
     public async Task<IActionResult> Update(string code, LanguageUpdateDto dto)
     {
-        var dats = _service.UpdateAsync(code, dto);
-        return Ok(dats);
+        try
+        {
+            await _service.UpdateAsync(code, dto);
+            return Ok();
+        }
+        catch (Exception ex)
+        {
+            if (ex is IBaseException ibe)
+            {
+                return StatusCode(ibe.StatusCode, new
+                {
+                    StatusCode = ibe.StatusCode,
+                    Message = ibe.ErrorMessage
+                });
+            }
+            else
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status400BadRequest,
+                    Message = ex.Message
+                });
+            }
+        }
     }
-
     [HttpDelete]
     [Route("{code}")]
     public async Task<IActionResult> Delete(string code, LanguageDeleteDto getdto)
     {
-        await _service.DeleteAsync(getdto);
-        return Content("Success");
+        try
+        {
+            await _service.DeleteAsync(getdto);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            if (ex is IBaseException ibe)
+            {
+                return StatusCode(ibe.StatusCode, new
+                {
+                    StatusCode = ibe.StatusCode,
+                    Message = ibe.ErrorMessage
+                });
+            }
+            else
+            {
+                return BadRequest(new
+                {
+                    StatusCode = StatusCodes.Status404NotFound,
+                    Message = ex.Message
+                });
+            }
+        }
     }
 }

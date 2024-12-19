@@ -441,3 +441,4 @@ C:\Users\ca r221.14\Desktop\APİ\Tabu\obj\Debug\net8.0\refint\Tabu.dll
 C:\Users\ca r221.14\Desktop\APİ\Tabu\obj\Debug\net8.0\Tabu.pdb
 C:\Users\ca r221.14\Desktop\APİ\Tabu\obj\Debug\net8.0\Tabu.genruntimeconfig.cache
 C:\Users\ca r221.14\Desktop\APİ\Tabu\obj\Debug\net8.0\ref\Tabu.dll
+C:\Users\Ilqar\Desktop\apitabuuu\Tabu\obj\Debug\net8.0\Tabu.sourcelink.json

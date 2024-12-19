@@ -12,9 +12,9 @@ namespace Tabu.Services.Implements
     {
         public async Task CreateAsync(LanguageCreateDto dto)
         {
-            var language = _mapper.Map<Language>(dto);
             if (await _context.Languages.AnyAsync(x => x.Code == dto.Code))
                 throw new LanguageExistException();
+            var language = _mapper.Map<Language>(dto);
             await _context.Languages.AddAsync(language);
             await _context.SaveChangesAsync();
         }
@@ -23,7 +23,7 @@ namespace Tabu.Services.Implements
         {
             var entity = await _context.Languages.FirstOrDefaultAsync(l => l.Code == language.Code);
             if (entity == null)
-                throw new Exception("entity is null !!!");
+                throw new LanguageNotFoundException();
 
             _context.Languages.Remove(entity);
             await _context.SaveChangesAsync();
@@ -37,12 +37,6 @@ namespace Tabu.Services.Implements
 
             return _mapper.Map<IEnumerable<LanguageGetDto>>(items);
         }
-
-        public Task<LanguageGetDto> GetByCode(string code)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task UpdateAsync(string code, LanguageUpdateDto language)
         {
             var entitiy = _context.Languages.Find(code);
