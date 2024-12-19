@@ -11,7 +11,7 @@ public class LanguagesController(ILanguageService _service) : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Get()
     {
-        var data = _service.GetAllAsync();
+        var data = await _service.GetAllAsync();
         return Ok(data);
     }
     [HttpPost]
