@@ -2,11 +2,38 @@
   {
     "ContainingType": "Tabu.Controllers.GamesController",
     "Method": "Get",
-    "RelativePath": "api/Games",
+    "RelativePath": "api/Games/Get",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tabu.Controllers.GamesController",
+    "Method": "Set",
+    "RelativePath": "api/Games/Set",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "value",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -133,8 +160,13 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "dto",
+        "Type": "Tabu.DTOs.Words.WordDeleteDto",
+        "IsRequired": true
+      },
+      {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "",
         "IsRequired": true
       }
     ],

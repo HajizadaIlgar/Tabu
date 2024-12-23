@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Tabu.DTOs.Words;
+using Tabu.Enums;
 
 namespace Tabu.Validators.Words
 {
@@ -17,7 +18,9 @@ namespace Tabu.Validators.Words
                 .NotNull();
 
             RuleFor(x => x.BannedWords)
-                .Must(x => x.Count() == 8);
+                .Must(x => x.Count() == (int)GameLevels.Hard)
+                .WithMessage(GameLevels.Hard + "eded qadagan olunmus soz olmalidir ");
+
 
             RuleForEach(x => x.BannedWords)
                 .NotNull()

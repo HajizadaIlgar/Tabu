@@ -17,8 +17,7 @@ namespace Tabu.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(WordCreateDto dto)
         {
-            await _service.CreateAsync(dto);
-            return Ok();
+            return Ok(await _service.CreateAsync(dto));
         }
         [HttpPut]
         public async Task<IActionResult> Update(int id, WordUpdateDto dto)
@@ -50,12 +49,12 @@ namespace Tabu.Controllers
         }
         [HttpDelete]
         [Route("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(WordDeleteDto dto)
         {
 
             try
             {
-                await _service.DeleteAsync(id);
+                await _service.DeleteAsync(dto);
                 return NoContent();
             }
             catch (Exception ex)

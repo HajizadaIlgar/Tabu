@@ -12,33 +12,27 @@ namespace Tabu.Services.Implements
     {
         public async Task<int> CreateAsync(WordCreateDto dto)
         {
-            if (await _context.Words.AnyAsync(x => x.LanguageCode == dto.Language))
-                throw new Exception();
             if (dto.BannedWords.Count() != 8)
                 throw new InvalidBannedWordCountException();
-            //var language = _mapper.Map<Word>(dto);
-            Word word = new Word
-            {
-                LanguageCode = dto.Language,
-                Text = dto.Text,
-                BannedWords = dto.BannedWords.Select(x => new BannedWord { Text = x }).ToList()
-            };
-            await _context.AddAsync(word);
+            var bannedWord = dto.BannedWords.Select(x => new BannedWord { Text = x }).ToList();
+            var language = _mapper.Map<Word>(dto);
+            language.BannedWords = bannedWord;
+            await _context.AddAsync(language);
             await _context.SaveChangesAsync();
-            return word.Id;
+            return language.Id;
         }
 
         public async Task<IEnumerable<WordGetDto>> GetAllAsync()
         {
-            var data = await _context.Words.ToListAsync();
+            var data = await _context.Words.Include(x => x.BannedWords).ToListAsync();
             return _mapper.Map<IEnumerable<WordGetDto>>(data);
         }
 
 
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(WordDeleteDto dto)
         {
-            var data = await _context.Words.Where(x => x.Id == id).FirstOrDefaultAsync();
+            var data = await _context.Words.Where(x => x.Id == dto.Id).FirstOrDefaultAsync();
             if (data is null)
             {
                 throw new NullReferenceException();
@@ -59,11 +53,6 @@ namespace Tabu.Services.Implements
         }
 
         public Task DeleteAsync(int id, WordDeleteDto dto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(WordDeleteDto dto)
         {
             throw new NotImplementedException();
         }

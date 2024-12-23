@@ -8,11 +8,11 @@ namespace Tabu.Profiles
     {
         public WordProfile()
         {
-            CreateMap<WordCreateDto, Word>()
-                 .ForMember(x => x.LanguageCode, y => y.MapFrom(z => z.Language));
-            ;
+            CreateMap<WordCreateDto, Word>();
             CreateMap<Word, WordGetDto>()
-                .ForMember(x => x.Language, y => y.MapFrom(z => z.LanguageCode));
+                .ForMember(x => x.Language, y => y.MapFrom(lc => lc.LanguageCode))
+                .ForMember(x => x.BannedWords, y => y.MapFrom(z => z.BannedWords.Select(bw => bw.Text).ToList()));
+            CreateMap<string, BannedWord>();
         }
     }
 }
