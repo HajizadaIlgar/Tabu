@@ -1,4 +1,6 @@
-﻿using Tabu.Enums;
+﻿using Microsoft.AspNetCore.Diagnostics;
+using Tabu.Enums;
+using Tabu.Exceptions;
 using Tabu.ExternalServices.Abstracts;
 using Tabu.ExternalServices.Implements;
 using Tabu.Services.Abstracts;
@@ -15,6 +17,7 @@ namespace Tabu
             services.AddScoped<IWordService, WordService>();
             return services;
         }
+
         public static IServiceCollection AddCacheService(this IServiceCollection services, IConfiguration _configuration, CacheTypes type = CacheTypes.Redis)
         {
             if (type == CacheTypes.Redis)
@@ -32,6 +35,41 @@ namespace Tabu
                 services.AddScoped<ICacheService, LocalCacheService>();
             }
             return services;
+        }
+
+        public static IApplicationBuilder UseTabuExceptionHandler(this IApplicationBuilder app)
+        {
+
+            app.UseExceptionHandler(handler =>
+            {
+                handler.Run(async context =>
+                {
+                    var feature = handler.ServerFeatures.Get<IExceptionHandlerFeature>();
+                    Exception exc = feature!.Error;
+                    context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+
+                    if (exc is IBaseException ibe)
+                    {
+                        context.Response.StatusCode = ibe.StatusCode;
+                        await context.Response.WriteAsJsonAsync(new
+                        {
+                            StatusCode = ibe.StatusCode,
+                            Message = ibe.ErrorMessage,
+                        });
+                    }
+                    else
+                    {
+                        context.Response.StatusCode = StatusCodes.Status400BadRequest;
+                        await context.Response.WriteAsJsonAsync(new
+                        {
+                            StatusCode = StatusCodes.Status400BadRequest,
+                            Message = "Nese problem var",
+                        });
+                    }
+                });
+
+            });
+            return app;
         }
     }
 }

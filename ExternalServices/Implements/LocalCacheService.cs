@@ -14,7 +14,16 @@ public class LocalCacheService(IMemoryCache _cache) : ICacheService
         });
         return value;
     }
-
+    public async Task<T?> Remove<T>(string key)
+    {
+        T? value = default(T);
+        if (_cache.TryGetValue(key, out object? obj))
+        {
+            value = (T?)obj;
+        }
+        _cache.Remove(key);
+        return value;
+    }
     public async Task SetAsync<T>(string key, T value, int second = 300)
     {
         await Task.Run(() =>
@@ -22,5 +31,6 @@ public class LocalCacheService(IMemoryCache _cache) : ICacheService
             _cache.Set<T>(key, value, DateTime.Now.AddSeconds(second));
         });
     }
+
 
 }

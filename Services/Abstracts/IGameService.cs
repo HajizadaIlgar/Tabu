@@ -1,8 +1,17 @@
-﻿namespace Tabu.Services.Abstracts
+﻿using Tabu.DTOs.Games;
+using Tabu.DTOs.Words;
+using Tabu.Entities;
+
+namespace Tabu.Services.Abstracts
 {
     public interface IGameService
     {
-        Task<T?> GetAsync<T>(string key);
-        Task SetAsync<T>(string key, T value);
+        Task<Guid> AddAsync(GameCreateDto dto);
+        Task<WordForGameDto> StartAsync(Guid id);
+        Task<Game> GetCurrentStatus(Guid id);
+        Task<WordForGameDto> PassAsync(Guid id);
+        Task<WordForGameDto> SuccesAsync(Guid id);
+        Task<WordForGameDto> WrongAsync(Guid id);
+        Task EndAsync(Guid id);
     }
 }

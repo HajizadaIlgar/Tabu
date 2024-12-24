@@ -1,8 +1,10 @@
-﻿namespace Tabu.Entities
+﻿using Tabu.Enums;
+
+namespace Tabu.Entities
 {
     public class Game
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public int BannedWordCount { get; set; }
         public int FailCount { get; set; }
         public int SkipCount { get; set; }
@@ -12,5 +14,6 @@
         public int WrongAnswer { get; set; }
         public string LanguageCode { get; set; } = "az";
         public Language Language { get; set; } = null!;
+        public GameLevels Levels { get; set; }
     }
 }
